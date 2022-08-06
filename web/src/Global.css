@@ -1,3 +1,10 @@
 @tailwind base;
+
+@layer base {
+  body {
+    @apply bg-black scroll-smooth scroll-mt-12;
+  }
+}
+
 @tailwind components;
 @tailwind utilities;

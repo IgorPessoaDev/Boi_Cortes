@@ -1,21 +1,25 @@
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from 'react-responsive-carousel';
+import { InstagramLogo } from "phosphor-react"
 import jupiter from "../../assets/jupiter.png";
 import marte from "../../assets/marte.png";
 import terra from "../../assets/terra.png"
+import { Menu } from "./Menu";
 
 export function Main() {
   return (
     <>
+
+      <Menu />
       <main className="mx-12 mt-20 lg:mx-32 ">
-        <img className="absolute -top-2 -left-20 -z-10 w-64 h-64" src={jupiter} alt="" />
+        <img className="absolute z-10 -top-2 -left-20 w-64 h-64" src={jupiter} alt="" />
         <section id="home" className="py-10 text-center border-b-2 border-violet-600">
+          <img className="w-64 h-64" src={jupiter} alt="" />
           <h1 className="text-white font-p text-3xl">Deixe seu Cabelo na Régua com Boi Cortes</h1>
           <button className="py-4 px-8 rounded-md font-p text-base my-4 bg-violet-700 hover:bg-violet-600 ">
             Marcar Horário
           </button>
 
-          {/* <img className="inline w-64 h-64" src={jupiter} alt="" />
-          <img className="inline w-64 h-64" src={marte} alt="" />
-          <img className="inline w-64 h-64" src={terra} alt="" /> */}
         </section>
         <section id="prices" className="py-10 text-center border-b-2 border-violet-600">
           <h1 className="text-white font-p text-3xl mb-4">Tabela de Preços</h1>
@@ -36,7 +40,29 @@ export function Main() {
             </tbody>
           </table>
         </section>
+        <section id="cuts" className="py-10 text-center">
+          <h1 className="text-white font-p text-3xl mb-4">Cortes</h1>
+          <Carousel infiniteLoop swipeable emulateTouch>
+            <div>
+              <img src={jupiter} alt="" />
+            </div>
+            <div>
+              <img src={marte} alt="" />
+            </div>
+            <div>
+              <img src={terra} alt="" />
+            </div>
+          </Carousel>
+        </section>
+
       </main>
+      <footer id="contacts" className="flex flex-col gap-4 h-72 px-4 py-10 text-left bg-violet-600">
+        <h1 className="font-quiksand text-xl lg:text-2xl text-black ">Boi Cortes</h1>
+        <div className="flex gap-3">
+          <InstagramLogo size={28} className="block" />
+          <a href="" className="font-dm font-medium text-lg">@boi_cortes</a>
+        </div>
+      </footer>
     </>
   )
 }

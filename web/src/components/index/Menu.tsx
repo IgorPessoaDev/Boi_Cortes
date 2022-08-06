@@ -12,7 +12,7 @@ export function Menu() {
 
   return (
     <>
-      <header className="fixed z-10 top-0 left-0 py-4 w-screen bg-black border-b-2 border-violet-700 shadow-c shadow-shadow ">
+      <header className="fixed z-50 top-0 left-0 py-4 w-screen bg-black border-b-2 border-violet-700 shadow-c shadow-shadow ">
         <nav className=" flex justify-start lg:justify-around items-center gap-x-4">
 
           {menu ?
@@ -24,10 +24,10 @@ export function Menu() {
 
           <div className={(menu ? "fixed z-10 top-0 left-0 w-screen h-screen text-zinc-50 bg-black flex " : "hidden") + " text-zinc-50 lg:flex justify-center items-center gap-8"}>
             <ul className="list-none font-dm text-3xl lg:text-sm text-center grid lg:flex gap-8 ">
-              <li className="block"><a href="#home" onClick={menuSet} className="relative transition-[width] after:absolute after:left-0 after:-bottom-4 after:w-0 after:h-0.5 after:bg-violet-600 after:duration-200 hover:after:w-full hover:text-violet-600">Inicio</a></li>
-              <li className="block"><a href="#prices" onClick={menuSet} className="relative transition-[width] after:absolute after:left-0 after:-bottom-4 after:w-0 after:h-0.5 after:bg-violet-600 after:duration-200 hover:after:w-full hover:text-violet-600">Preços</a></li>
-              <li className="block"><a href="#cuts" onClick={menuSet} className="relative transition-[width] after:absolute after:left-0 after:-bottom-4 after:w-0 after:h-0.5 after:bg-violet-600 after:duration-200 hover:after:w-full hover:text-violet-600">Cortes</a></li>
-              <li className="block"><a href="#contacts" onClick={menuSet} className="relative transition-[width] after:absolute after:left-0 after:-bottom-4 after:w-0 after:h-0.5 after:bg-violet-600 after:duration-200 hover:after:w-full hover:text-violet-600">Contatos</a></li>
+              <li className="block"><a href="#home" className="relative transition-[width] after:absolute after:left-0 after:-bottom-4 after:w-0 after:h-0.5 after:bg-violet-600 after:duration-200 hover:after:w-full hover:text-violet-600">Inicio</a></li>
+              <li className="block"><a href="#prices" className="relative transition-[width] after:absolute after:left-0 after:-bottom-4 after:w-0 after:h-0.5 after:bg-violet-600 after:duration-200 hover:after:w-full hover:text-violet-600">Preços</a></li>
+              <li className="block"><a href="#cuts" className="relative transition-[width] after:absolute after:left-0 after:-bottom-4 after:w-0 after:h-0.5 after:bg-violet-600 after:duration-200 hover:after:w-full hover:text-violet-600">Cortes</a></li>
+              <li className="block"><a href="#contacts" className="relative transition-[width] after:absolute after:left-0 after:-bottom-4 after:w-0 after:h-0.5 after:bg-violet-600 after:duration-200 hover:after:w-full hover:text-violet-600">Contatos</a></li>
             </ul>
           </div>
 

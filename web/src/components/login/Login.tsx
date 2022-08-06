@@ -1,3 +1,4 @@
+import { Eye, EyeSlash, SignIn } from "phosphor-react";
 import { useState } from "react"
 import { api } from "../../lib/api"
 
@@ -13,6 +14,11 @@ export function Login({ handLogin }: props) {
   const [nome, setNome] = useState('');
   const [isAdmin, setIsAdmin] = useState(false);
   const [senha, setSenha] = useState('');
+  const [visible, setVisible] = useState(false)
+
+  function visibleset() {
+    visible ? setVisible(false) : setVisible(true)
+  }
 
   async function logar() {
     await api.post(`/login`, {
@@ -40,15 +46,23 @@ export function Login({ handLogin }: props) {
   }
 
   return (
-    <div className="w-screen h-screen flex justify-center items-center bg-purple-600">
-      <div className="w-64 h-72 flex justify-center items-center gap-2 flex-col bg-gray-600 rounded-">
-        <input type="text" placeholder="digite o seu nome/apelido" className="p-1 bg-transparent outline-none border focus:bg-gray-700" onChange={event => setNome(event.target.value)} />
+    <>
+      <div className="w-screen h-full lg:flex lg:justify-center lg:items-center">
+        <h1 className="fixed top-3 left-8 font-quiksand text-xl lg:text-2xl text-zinc-50">Boi <span className="text-violet-500">Cortes</span> </h1>
+        <div className="mt-12 mx-5 grid gap-y-3">
+          <h1 className="text-white font-quiksand text-2xl"><SignIn size={32} className="text-violet-600 inline" /> Faça seu login</h1>
 
+          <label htmlFor="text" className="font-dm text-xl text-zinc-400 block">Nome </label>
+          <input type="text" name="" id="" placeholder="Digite o seu nome" className="bg-transparent p-2 text-white border border-zinc-500 rounded-md placeholder-zinc-500 focus:border-violet-600 focus:ring-violet-600 focus:ring-2 focus:outline-none" />
+          <label htmlFor="text" className="font-dm text-xl text-zinc-400 block">Senha </label>
+          <div className="grid grid-cols-4 gap-x-4">
 
-        <input type="password" minLength={4} placeholder="digite sua senha" inputMode="numeric" className="p-1 bg-transparent outline-none border focus:bg-gray-700" onChange={event => setSenha(event.target.value)} />
-
-        <button className='bg-purple-700 px-6 py-3 rounded-md text-gray-400 hover:bg-purple-500 hover:text-white' onClick={() => logar()} >login</button>
+            <input type={visible ? "text" : "password"} name="" id="" placeholder="Digite o sua senha" className="col-span-3 bg-transparent p-2 text-white border border-zinc-500 rounded-md placeholder-zinc-500 focus:border-violet-600 focus:ring-violet-600 focus:ring-2 focus:outline-none" />
+            <button onClick={visibleset} className="">{visible ? <EyeSlash size={32} className="text-violet-700 inline" /> : <Eye size={32} className="text-violet-700 inline" />}</button>
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   )
 }
+// onChange={event => setSenha(event.target.value)}
