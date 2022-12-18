@@ -6,19 +6,28 @@ import { Login } from "./login/Login";
 
 export function Index() {
 
-  const [makeAnAppointment, setMakeAnAppointment] = useState(false)
-  const [login, setLogin] = useState(true)
+  const [makeAnAppointment, setMakeAnAppointment] = useState(true); //mudar pra False
+  const [login, setLogin] = useState(false);
+  const [register, setRegister] = useState<boolean>(false);
 
   function handLogin() {
     login ? setLogin(false) : setLogin(true)
+    setRegister(false)
+  }
+  function handRegister() {
+    login ? setLogin(false) : setLogin(true)
+    register ? setRegister(false) : setRegister(true)
+  }
+  function handMake() {
+    makeAnAppointment ? setMakeAnAppointment(false) : setMakeAnAppointment(true)
   }
 
   return (
 
     <>
       {
-        login ? <Login handLogin={handLogin} /> : makeAnAppointment ? <MakeAnAppointment /> :
-          <Main />
+        login ? <Login handLogin={handLogin} register={register} /> : makeAnAppointment ? <MakeAnAppointment handMake={handMake} /> :
+          <Main handLogin={handLogin} register={handRegister} handMake={handMake} />
 
       }
 

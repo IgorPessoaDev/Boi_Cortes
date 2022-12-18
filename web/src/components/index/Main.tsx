@@ -6,17 +6,23 @@ import marte from "../../assets/marte.png";
 import terra from "../../assets/terra.png"
 import { Menu } from "./Menu";
 
-export function Main() {
+interface Props {
+  handLogin: () => void,
+  register: () => void,
+  handMake: () => void
+}
+
+export function Main({ handLogin, register, handMake }: Props) {
+
   return (
     <>
-
-      <Menu />
+      <Menu handLoginMenu={handLogin} register={register} />
       <main className="mx-12 mt-20 lg:mx-32 ">
         <img className="absolute z-10 -top-2 -left-20 w-64 h-64" src={jupiter} alt="" />
         <section id="home" className="py-10 text-center border-b-2 border-violet-600">
           <img className="w-64 h-64" src={jupiter} alt="" />
           <h1 className="text-white font-p text-3xl">Deixe seu Cabelo na Régua com Boi Cortes</h1>
-          <button className="py-4 px-8 rounded-md font-p text-base my-4 bg-violet-700 hover:bg-violet-600 ">
+          <button className="py-4 px-8 rounded-md font-p text-base my-4 bg-violet-700 hover:bg-violet-600 " onClick={handMake}>
             Marcar Horário
           </button>
 

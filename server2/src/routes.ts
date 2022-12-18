@@ -87,6 +87,20 @@ routes.post('/login', async (req, res) => {
   return res.status(200).json({ data: updateUsers })
 })
 
+//verification
+routes.post('/verification', async (req, res) => {
+  const nome = req.body.nome
+  const userByName = await prisma.user.findFirst({
+    where: {
+      nome: {
+        contains: nome,
+      },
+    },
+  })
+
+  return res.status(200).json({ data: userByName })
+})
+
 //Create
 routes.post('/users', async (req, res) => {
   const { nome, senha, isAdmin } = req.body;

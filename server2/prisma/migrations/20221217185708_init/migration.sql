@@ -9,10 +9,9 @@ CREATE TABLE "login" (
 -- CreateTable
 CREATE TABLE "schedules" (
     "id" TEXT NOT NULL PRIMARY KEY,
-    "nome" TEXT NOT NULL,
     "data" DATETIME NOT NULL,
-    "authorId" TEXT,
-    CONSTRAINT "schedules_authorId_fkey" FOREIGN KEY ("authorId") REFERENCES "login" ("id") ON DELETE SET NULL ON UPDATE CASCADE
+    "authorName" TEXT,
+    CONSTRAINT "schedules_authorName_fkey" FOREIGN KEY ("authorName") REFERENCES "login" ("nome") ON DELETE SET NULL ON UPDATE CASCADE
 );
 
 -- CreateIndex

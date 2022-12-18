@@ -2,8 +2,12 @@ import { useState } from "react";
 import { List, X } from "phosphor-react";
 import login from "../../controllers/login";
 
+interface Props {
+  handLoginMenu: () => void,
+  register: () => void
+}
 
-export function Menu() {
+export function Menu({ handLoginMenu, register }: Props) {
   const [menu, setMenu] = useState(false)
 
   function menuSet() {
@@ -32,8 +36,8 @@ export function Menu() {
           </div>
 
           <div className="text-zinc-50 absolute right-2 font-dm text-sm flex gap-2 lg:gap-4 lg:static">
-            <button id="login" className="transition hover:text-neutral-500">Login</button>
-            <button id="register" className="px-2 py-2 sm:px-4 sm:py-2 rounded-lg border-2 border-violet-600 hover:border-transparent hover:bg-violet-600">Registre-se</button>
+            <button id="login" className="transition hover:text-neutral-500" onClick={handLoginMenu}>Login</button>
+            <button id="register" className="px-2 py-2 sm:px-4 sm:py-2 rounded-lg border-2 border-violet-600 hover:border-transparent hover:bg-violet-600" onClick={register}>Registre-se</button>
           </div>
         </nav>
 
